@@ -18,4 +18,9 @@
 // constexpr int RANGE_FINDER_PORT = 1;
 // constexpr int RANGE_FINDER_MODULE = 1;
 
+const double MULTIPLIER = 5;
+
+const int LEFTMOTOR = 1;
+const int RIGHTMOTOR = 2;
+
 #endif  // ROBOTMAP_H
