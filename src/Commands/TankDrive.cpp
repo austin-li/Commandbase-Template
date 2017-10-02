@@ -1,4 +1,6 @@
 #include "TankDrive.h"
+#include "ToggleDrive.h"
+#include "CommandBase.h"
 
 TankDrive::TankDrive() {
 	// Use Requires() here to declare subsystem dependencies
@@ -13,9 +15,15 @@ void TankDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
+	if (CommandBase::tankDrive == true) {
 	double leftVal = oi->getLeft()->GetY();
 	double rightVal = oi->getRight()->GetY();
 	driveTrain->tankDrive(leftVal, rightVal);
+	} else {
+		double moveVal = oi->getRight()->GetY();
+		double rotVal = oi->getRight()->GetZ();
+		driveTrain->arcadeDrive(moveVal, rotVal);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
