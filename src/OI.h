@@ -7,6 +7,7 @@ class OI {
 private:
 	Joystick* leftStick;
 	Joystick* rightStick;
+	Button *toggleDrive;
 public:
 	OI();
 	Joystick* getLeft();
