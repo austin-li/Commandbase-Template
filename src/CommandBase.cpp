@@ -11,7 +11,9 @@ std::unique_ptr<ExampleSubsystem> CommandBase::exampleSubsystem =
 
 std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
+DriveTrain* CommandBase::driveTrain = nullptr;
+
 CommandBase::CommandBase(const std::string &name) :
 		frc::Command(name) {
-
+	driveTrain = new DriveTrain();
 }
