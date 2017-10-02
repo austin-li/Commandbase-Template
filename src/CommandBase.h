@@ -26,6 +26,7 @@ public:
 	static std::unique_ptr<ExampleSubsystem> exampleSubsystem;
 	static std::unique_ptr<OI> oi;
 	static DriveTrain* driveTrain;
+	static bool tankDrive;
 };
 
 #endif  // COMMAND_BASE_H

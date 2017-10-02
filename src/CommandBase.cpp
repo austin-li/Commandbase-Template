@@ -13,6 +13,8 @@ std::unique_ptr<OI> CommandBase::oi = std::make_unique<OI>();
 
 DriveTrain* CommandBase::driveTrain = nullptr;
 
+bool CommandBase::tankDrive = true;
+
 CommandBase::CommandBase(const std::string &name) :
 		frc::Command(name) {
 	driveTrain = new DriveTrain();
