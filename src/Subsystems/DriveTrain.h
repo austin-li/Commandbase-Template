@@ -10,11 +10,13 @@ private:
 	// for methods that implement subsystem capabilities
 	Jaguar* leftMotor;
 	Jaguar* rightMotor;
+	double mult;
 
 public:
 	DriveTrain();
 	void InitDefaultCommand();
 	void tankDrive(double left, double right);
+	void arcadeDrive(double move, double rotation);
 };
 
 #endif  // DriveTrain_H

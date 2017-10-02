@@ -2,7 +2,7 @@
 #include "../RobotMap.h"
 #include "Commands/TankDrive.h"
 
-DriveTrain::DriveTrain() : Subsystem("ExampleSubsystem"), leftMotor(new Jaguar(LEFTMOTOR)), rightMotor(new Jaguar(RIGHTMOTOR)){
+DriveTrain::DriveTrain() : Subsystem("ExampleSubsystem"), leftMotor(new Jaguar(LEFTMOTOR)), rightMotor(new Jaguar(RIGHTMOTOR)), mult(MULTIPLIER){
 
 }
 
@@ -13,9 +13,15 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::tankDrive(double left, double right) {
-	double mult = MULTIPLIER;
 	leftMotor->Set(-left * mult);
 	rightMotor->Set(-right * mult);
+}
+
+void DriveTrain::arcadeDrive(double move, double rotation) {
+	double left = -move + rotation;
+	double right = -move - rotation;
+	leftMotor->Set(left * mult);
+	rightMotor->Set(right * mult);
 }
 
 // Put methods for controlling this subsystem
